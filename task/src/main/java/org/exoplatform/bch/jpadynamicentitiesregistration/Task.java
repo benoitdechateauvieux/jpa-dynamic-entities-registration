@@ -8,6 +8,7 @@ import javax.persistence.Id;
  * Created by bdechateauvieux on 7/14/15.
  */
 @Entity
+@ExoJpaEntity
 public class Task {
     @Id
     @GeneratedValue

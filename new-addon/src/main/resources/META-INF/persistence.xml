@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <!--<persistence-unit name="MyPU"/>-->
-
-    <persistence-unit name="exo-pu" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="new-PU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
         <properties>

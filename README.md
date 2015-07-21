@@ -26,6 +26,8 @@ The class contains only one (interesting) method:
 
 In order to obtain the list of classes annotated with @Entity, it use the [Reflections](https://github.com/ronmamo/reflections) framework.  
 Then it declares those entities to the JPA Persistence Unit.
+  
+Another module (called *new-addon*) defines and uses its own PU and JPA entity.  
 
 ### How to test it ?
 ```maven

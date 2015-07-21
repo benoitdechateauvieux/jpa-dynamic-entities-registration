@@ -45,7 +45,7 @@ public class EntityManagerService {
   private ThreadLocal<EntityManager>  instance = new ThreadLocal<EntityManager>();
 
   public EntityManagerService() {
-    entityManagerFactory = Persistence.createEntityManagerFactory("MyPU");
+    entityManagerFactory = Persistence.createEntityManagerFactory("exo-pu");
   }
 
   /**

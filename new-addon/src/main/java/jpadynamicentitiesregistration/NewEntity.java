@@ -1,4 +1,4 @@
-package org.exoplatform.bch.jpadynamicentitiesregistration;
+package jpadynamicentitiesregistration;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,8 +8,7 @@ import javax.persistence.Id;
  * Created by bdechateauvieux on 7/14/15.
  */
 @Entity
-@ExoJpaEntity
-public class Activity {
+public class NewEntity {
     @Id
     @GeneratedValue
     private Long id;
