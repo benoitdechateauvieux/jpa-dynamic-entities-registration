@@ -13,9 +13,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.reflections</groupId>
-            <artifactId>reflections</artifactId>
-            <version>0.9.9-RC1</version>
+            <groupId>org.scannotation</groupId>
+            <artifactId>scannotation</artifactId>
+            <version>1.0.3</version>
         </dependency>
     </dependencies>
 
