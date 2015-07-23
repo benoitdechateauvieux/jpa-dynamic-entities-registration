@@ -18,10 +18,15 @@
  */
 package org.exoplatform.bch.jpadynamicentitiesregistration;
 
+import org.hibernate.cfg.Configuration;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.Properties;
 
 /**
  * This service is responsible to create a single EntityManagerFactory, with the
@@ -45,7 +50,25 @@ public class EntityManagerService {
   private ThreadLocal<EntityManager>  instance = new ThreadLocal<EntityManager>();
 
   public EntityManagerService() {
-    entityManagerFactory = Persistence.createEntityManagerFactory("exo-pu");
+    //Get Hibernate properties
+    final Properties properties = new Properties();
+    try {
+      properties.load(this.getClass().getResourceAsStream("/exo.properties"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    Enumeration keys = properties.keys();
+    while (keys.hasMoreElements()) {
+      String propertyName = (String)keys.nextElement();
+      if (propertyName.startsWith("hibernate.")) {
+        String propertyValue = properties.getProperty(propertyName);
+        if (propertyValue != null) { //TODO is not null
+          properties.put(propertyName, propertyValue);
+          System.out.println("Setting [" + propertyName + "] to [" + propertyValue + "]");
+        }
+      }
+    }
+    entityManagerFactory = Persistence.createEntityManagerFactory("exo-pu", properties);
   }
 
   /**

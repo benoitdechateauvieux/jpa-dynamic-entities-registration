@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Enumeration;
-import java.util.Properties;
 
 import org.hibernate.cfg.Configuration;
 import org.hibernate.engine.spi.SessionFactoryImplementor;
@@ -19,24 +18,7 @@ public class ExoJpaEntityScanner implements Integrator {
                           SessionFactoryImplementor sessionFactory,
                           SessionFactoryServiceRegistry serviceRegistry) {
 
-        registerHibernateConfiguration(configuration);
         registerEntities(configuration);
-    }
-
-    private void registerHibernateConfiguration(Configuration configuration) {
-        final Properties properties = new Properties();
-        try {
-            properties.load(this.getClass().getResourceAsStream("/exo.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String propertyValue = properties.getProperty("hibernate.show_sql");
-        if (propertyValue!=null) {
-            Properties props = new Properties();
-            props.put("hibernate.show_sql", propertyValue);
-            configuration.addProperties(props);
-            System.out.println("Setting hibernate.show_sql to [" + propertyValue+"]");
-        }
     }
 
     private void registerEntities(Configuration configuration) {
