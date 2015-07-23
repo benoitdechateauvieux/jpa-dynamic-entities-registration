@@ -23,7 +23,7 @@ public class ExoJpaEntityScanner implements Integrator {
 
     private void registerEntities(Configuration configuration) {
         try {
-            Enumeration<URL> urls = ClassLoader.getSystemClassLoader().getResources("exo/exo-entities.txt");
+            Enumeration<URL> urls = ClassLoader.getSystemClassLoader().getResources("exo-jpa-entities/entities.idx");
             while (urls.hasMoreElements()) {
                 InputStream stream = urls.nextElement().openStream();
                 try {

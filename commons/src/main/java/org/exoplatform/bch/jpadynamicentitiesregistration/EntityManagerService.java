@@ -57,16 +57,10 @@ public class EntityManagerService {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    Enumeration keys = properties.keys();
-    while (keys.hasMoreElements()) {
-      String propertyName = (String)keys.nextElement();
-      if (propertyName.startsWith("hibernate.")) {
-        String propertyValue = properties.getProperty(propertyName);
-        if (propertyValue != null) { //TODO is not null
-          properties.put(propertyName, propertyValue);
-          System.out.println("Setting [" + propertyName + "] to [" + propertyValue + "]");
-        }
-      }
+    String propertyValue = properties.getProperty("hibernate.show_sql");
+    if (propertyValue != null) { //TODO is not null
+      properties.put("hibernate.show_sql", propertyValue);
+      System.out.println("Setting [hibernate.show_sql] to [" + propertyValue + "]");
     }
     entityManagerFactory = Persistence.createEntityManagerFactory("exo-pu", properties);
   }

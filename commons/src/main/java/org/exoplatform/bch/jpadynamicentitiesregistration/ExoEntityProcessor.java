@@ -26,7 +26,7 @@ public class ExoEntityProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         Writer writer = null;
         try {
-            FileObject file = processingEnv.getFiler().createResource(StandardLocation.CLASS_OUTPUT, "", "exo/exo-entities.txt");
+            FileObject file = processingEnv.getFiler().createResource(StandardLocation.CLASS_OUTPUT, "", "exo-jpa-entities/entities.idx");
             writer = file.openWriter();
             for (Element element : roundEnv.getElementsAnnotatedWith(ExoJpaEntity.class)) {
                 writer.append(element.asType().toString());
