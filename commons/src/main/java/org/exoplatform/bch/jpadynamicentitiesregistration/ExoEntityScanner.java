@@ -13,7 +13,7 @@ import org.hibernate.integrator.spi.Integrator;
 import org.hibernate.metamodel.source.MetadataImplementor;
 import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
-public class ExoJpaEntityScanner implements Integrator {
+public class ExoEntityScanner implements Integrator {
     public void integrate(Configuration configuration,
                           SessionFactoryImplementor sessionFactory,
                           SessionFactoryServiceRegistry serviceRegistry) {

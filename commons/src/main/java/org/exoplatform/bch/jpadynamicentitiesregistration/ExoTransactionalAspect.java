@@ -30,15 +30,15 @@ import org.aspectj.lang.annotation.Aspect;
  * REQUIRED. Support a current transaction, create a new one if none exists.
  * Analogous to EJB or Spring transaction attribute of the same name.
  *
- * @see org.exoplatform.bch.jpadynamicentitiesregistration.Transactional
+ * @see org.exoplatform.bch.jpadynamicentitiesregistration.ExoTransactional
  * @author <a href="bdechateauvieux@exoplatform.org">Benoit de Chateauvieux</a>
  * @version $Revision$
  */
 @Aspect
-public class TransactionalAspect {
+public class ExoTransactionalAspect {
 //  private static final Log LOG = ExoLogger.getLogger(TransactionalAspect.class);
 
-  @Around("execution(* *(..)) && @annotation(Transactional)")
+  @Around("execution(* *(..)) && @annotation(ExoTransactional)")
   public Object around(ProceedingJoinPoint point) throws Throwable {
     EntityManager entityManager;
     boolean begunTx = false;

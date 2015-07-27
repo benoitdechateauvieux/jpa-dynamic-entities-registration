@@ -9,7 +9,7 @@ import javax.persistence.Id;
  */
 @Entity
 @ExoEntity
-public class Task {
+public class Comment {
     @Id
     @GeneratedValue
     private Long id;

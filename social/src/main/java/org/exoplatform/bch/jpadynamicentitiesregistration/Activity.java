@@ -8,7 +8,7 @@ import javax.persistence.Id;
  * Created by bdechateauvieux on 7/14/15.
  */
 @Entity
-@ExoJpaEntity
+@ExoEntity
 public class Activity {
     @Id
     @GeneratedValue
